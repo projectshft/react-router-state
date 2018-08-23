@@ -29,13 +29,13 @@ class App extends React.Component {
   render() {
     return (
       <div>
-      <Switch>
-        <Route exact path='/' component={Home}/>
-        <Route path='/roster' render={() => (
-          <Roster addPlayer={this.addPlayer} players={this.state.players} />
-        )}/>
-        <Route path='/schedule' component={Schedule}/>
-      </Switch>
+        <Switch>
+          <Route exact path='/' component={Home}/>
+          <Route path='/roster' render={() => (
+            <Roster addPlayer={this.addPlayer} players={this.state.players} />
+          )}/>
+          <Route path='/schedule' component={Schedule}/>
+        </Switch>
       </div>
     )
   }
