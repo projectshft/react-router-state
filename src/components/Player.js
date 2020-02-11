@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom'
 import React from 'react'
 import _ from 'lodash'
 
-const Player = ({props, players}) => {
-  const player = _.find(players, { number: parseInt(props.match.params.number, 10) });
+const Player = ({playerId, players}) => {
+  const player = _.find(players, { number: playerId });
 
   if (!player) {
     return <div>Sorry, but the player was not found</div>

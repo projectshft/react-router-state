@@ -6,12 +6,12 @@ import FullRoster from './FullRoster';
 
 const Roster = ({players, addPlayer}) => (
   <Switch>    
-    <Route path='/roster/new' render={(props) => (
-      <PlayerNew props={props} players={players} addPlayer={addPlayer} />
+    <Route path='/roster/new' render={(routeProps) => (
+      <PlayerNew history={routeProps.history} players={players} addPlayer={addPlayer} />
     )}/>
   
-    <Route path='/roster/:number' render={(props) => (
-      <Player props={props} players={players} />
+    <Route path='/roster/:number' render={(routeProps) => (
+      <Player playerId={parseInt(routeProps.match.params.number, 10)} players={players} />
     )}/>
     
     <Route path='/roster' render={() => (

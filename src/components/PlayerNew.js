@@ -22,7 +22,7 @@ class PlayerNew extends React.Component {
     };
 
     this.props.addPlayer(newPlayer)
-    this.props.props.history.push('/roster')
+    this.props.history.push('/roster')
   }
 
   render () {
