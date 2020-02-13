@@ -12,7 +12,8 @@ const Player = ({playerId, players}) => {
     <div>
       <h1>{player.name} (#{player.number})</h1>
       <h2>Position: {player.position}</h2>
-      <Link to='/roster'>Back</Link>
+      <div><Link to='/roster'>Back</Link></div>
+      <div><Link to={`/roster/${player.number}/edit`}>Edit</Link></div>
     </div>
   )
 }

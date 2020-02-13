@@ -18,12 +18,25 @@ class App extends React.Component {
         { number: 6, name: "Fillipe Forward", position: "F" }
       ]
     }
-    
+
     this.addPlayer = this.addPlayer.bind(this);
+    this.updatePlayer = this.updatePlayer.bind(this);
   }
-  
+
   addPlayer (player) {
     this.setState({players: this.state.players.concat([player])});
+  }
+
+  updatePlayer (player) {
+    const newPlayers = this.state.players.map((p) => {
+      if (player.number === p.number) {
+        p = player;
+      }
+
+      return p;
+    });
+
+    this.setState({players: newPlayers});
   }
 
   render() {
@@ -32,7 +45,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' component={Home}/>
           <Route path='/roster' render={() => (
-            <Roster addPlayer={this.addPlayer} players={this.state.players} />
+            <Roster updatePlayer={this.updatePlayer} addPlayer={this.addPlayer} players={this.state.players} />
           )}/>
           <Route path='/schedule' component={Schedule}/>
         </Switch>
